@@ -54,7 +54,7 @@ const AuthPage = () => {
 
   return (
     <div className={`${styles.wrapper} p-3`}>
-      <div className={`${styles.form} col-md-3 col-sm-8 col-11 card p-3 rounded`}>
+      <div className={`${styles.form} col-lg-3 col-md-5 col-sm-9 col-11 card p-3 rounded`}>
         <div className={`${styles.header}`}>
           <p>Wellcome!</p>
         </div>
