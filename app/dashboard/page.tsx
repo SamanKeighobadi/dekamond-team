@@ -2,6 +2,7 @@
 
 import AuthTokenManager from "@/lib/TokenManager";
 import { useEffect } from "react";
+import styles from './dashboard.module.scss'
 
 const DashbaordPage = () => {
   const auth = new AuthTokenManager("/auth");
@@ -11,8 +12,8 @@ const DashbaordPage = () => {
   }, []);
 
   return (
-    <div className=" d-flex  justify-content-center ">
-      <div className="alert alert-info">
+    <div className={`${styles.container}`}>
+      <div className={`alert alert-info ${styles.message}`}>
         <h1 className="p-4 ">Wellcom To Dashbaord !</h1>
       </div>
     </div>

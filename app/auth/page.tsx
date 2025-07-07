@@ -1,16 +1,21 @@
 "use client";
-
+// ****** Styles ****** //
+import styles from "./auth.module.scss";
+// ****** Custom Components ****** //
 import Button from "../components/ui/Button";
 import Input from "../components/ui/Input";
-import { getRandomUser } from "@/services/auth.services";
+// ****** HTTP methods ****** //
 import { useQuery } from "@tanstack/react-query";
-import { schema } from "./validations/schema";
+import { getRandomUser } from "@/services/auth.services";
+// ****** Zod Validations & Third-Party  ****** //
 import z from "zod";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { schema } from "./validations/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+// ****** Utils & libs ****** //
 import AuthTokenManager from "@/lib/TokenManager";
+// ****** Next Hooks ****** //
+import { useRouter } from "next/navigation";
 
 type FormData = z.infer<typeof schema>;
 
@@ -48,8 +53,11 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="p-3">
-      <div className="col-md-3">
+    <div className={`${styles.wrapper} p-3`}>
+      <div className={`${styles.form} col-md-3 col-sm-8 col-11 card p-3 rounded`}>
+        <div className={`${styles.header}`}>
+          <p>Wellcome!</p>
+        </div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Input
             label="Phone Number"
@@ -60,7 +68,13 @@ const AuthPage = () => {
             register={register}
           />
 
-          <Button variant="primary" type="submit" isLoading={isLoading}>
+          <Button
+            variant="success"
+            fullWidth
+            type="submit"
+            
+            isLoading={isLoading}
+          >
             Login
           </Button>
         </form>

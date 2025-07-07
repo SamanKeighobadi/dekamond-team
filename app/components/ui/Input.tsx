@@ -43,7 +43,7 @@ const Input = (props: InputProps) => {
         {...(register ? register(name) : {})}
       />
 
-      {error && <p className="text-danger mt-1 ">{error.message}</p>}
+      {error && <p className="text-danger mt-1 error ">{error.message}</p>}
     </div>
   );
 };
