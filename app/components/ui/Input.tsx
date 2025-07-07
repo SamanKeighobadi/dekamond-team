@@ -1,6 +1,5 @@
 "use client";
 
-import { ChangeEvent } from "react";
 import { UseFormRegister, FieldError } from "react-hook-form";
 
 interface InputProps {
@@ -25,6 +24,7 @@ const Input = (props: InputProps) => {
     className,
     disabeld,
     placeholder,
+    error,
     register,
   } = props;
 
@@ -42,6 +42,8 @@ const Input = (props: InputProps) => {
         placeholder={placeholder}
         {...(register ? register(name) : {})}
       />
+
+      {error && <p className="text-danger mt-1 ">{error.message}</p>}
     </div>
   );
 };

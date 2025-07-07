@@ -28,6 +28,7 @@ const Button = (props: ButtonProps) => {
     isLoading = false,
     fullWidth = false,
     className = "",
+    type = "button",
     ...rest
   } = props;
 
@@ -41,11 +42,12 @@ const Button = (props: ButtonProps) => {
 
   return (
     <button
+      type={type}
       className={`btn btn-${variant} btn-${size} ${
         fullWidth ? "w-100" : ""
       } ${className}`}
       disabled={isLoading || props.disabled}
-      {...props}
+      {...rest}
     >
       {isLoading && loadingSpinner}
       {children}

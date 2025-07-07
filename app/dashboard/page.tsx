@@ -1,4 +1,15 @@
+"use client";
+
+import AuthTokenManager from "@/lib/TokenManager";
+import { useEffect } from "react";
+
 const DashbaordPage = () => {
+  const auth = new AuthTokenManager("/auth");
+
+  useEffect(() => {
+    auth.getAccessToken();
+  }, []);
+
   return (
     <div className=" d-flex  justify-content-center ">
       <div className="alert alert-info">
